@@ -4,6 +4,7 @@ import axios from 'axios';
 import { ClipLoader } from 'react-spinners';
 import { Box, Image, Text, Center } from '@chakra-ui/react';
 import Navbar from '../components/navbar';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const API_BASE_URL = 'https://api.nasa.gov/planetary/apod';
 
@@ -67,7 +68,7 @@ const ImageDetail = () => {
             gap={'10px'}
             >
               <Box w={['100%', '100%', '45%', '45%']} h={'auto'}>
-                <Image src={imageData.url} alt={imageData.title} borderRadius={'20px'} />
+                <LazyLoadImage src={imageData.url} alt={imageData.title} borderRadius={'20px'} />
               </Box>
 
               <Box

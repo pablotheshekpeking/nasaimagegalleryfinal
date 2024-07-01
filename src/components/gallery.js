@@ -1,7 +1,8 @@
 import React from 'react';
 import {  Link } from 'react-router-dom';
 import '../App.css';
-import { Box, Image } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Gallery = ({ images }) => {
   return (
@@ -16,8 +17,8 @@ const Gallery = ({ images }) => {
       >
         {images.map((image, index) => (
           <Box height={'200px'} border={'1px solid #ccc'} borderRadius={'5px'} overflow={'hidden'}  className="image-card">
-          <Link target="_blank" to={`/details/${image.date}`}>
-              <Image w={'100%'} h={'200px'} objectFit={'cover'} className='skeleton' src={image.url} alt={image.title}  />
+          <Link  to={`/details/${image.date}`}>
+              <LazyLoadImage w={'100%'} h={'200px'} objectFit={'cover'} className='skeleton' src={image.url} alt={image.title}  />
             </Link>
           </Box>
           ))}
